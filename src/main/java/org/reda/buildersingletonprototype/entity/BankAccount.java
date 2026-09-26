@@ -72,4 +72,43 @@ public class BankAccount {
                 '}';
     }
 
+    //Builder Pattern ----------
+    public static AccountBuilder builder(){
+        return new AccountBuilder();
+    }
+
+    public static class AccountBuilder{
+        private BankAccount bankAccount = new BankAccount();
+
+        public AccountBuilder id(Long id){
+            bankAccount.id = id;
+            return this;
+        }
+
+        public AccountBuilder balance(double balance){
+            bankAccount.balance = balance;
+            return this;
+        }
+
+        public AccountBuilder currency(String currency){
+            bankAccount.currency = currency;
+            return this;
+        }
+
+        public AccountBuilder type(AccountType type){
+            bankAccount.type = type;
+            return this;
+        }
+
+        public AccountBuilder status(AccountStatus status){
+            bankAccount.status = status;
+            return this;
+        }
+
+        public BankAccount build(){
+            return this.bankAccount;
+        }
+    }
+    // ------------------
+
 }
